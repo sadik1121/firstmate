@@ -1,0 +1,58 @@
+lab session: fm-lab-fdleak-23053-14997
+
+### S1: lab provision inside a capture (new helper, GNU bash, version 5.3.9(1)-release (aarch64-apple-darwin25.4.0))
+[provision] capture returned after 1s: provision rc=0
+status running: true
+server pid=23104 argv=[herdr server --session fm-lab-fdleak-23053-14997] parent=1 (/sbin/launchd)
+no bash parent
+server fds: p23104 f3 tREG f4 tunix f5 tKQUEUE f6 tKQUEUE f7 tKQUEUE f8 tunix f9 tunix f10 tunix f11 tPIPE f13 tunix
+server pipe fds: 1
+server env (filtered): HERDR_SESSION=fm-lab-fdleak-23053-14997 CLAUDECODE=1
+
+### S2: stop lab server, restart via adapter fm_backend_herdr_server_ensure in a capture (GNU bash, version 5.3.9(1)-release (aarch64-apple-darwin25.4.0), shape=plain)
+after stop running: false
+[S2] capture returned after 0s: returned rc=0
+status running: true
+server pid=23421 argv=[/var/folders/29/jwrx3p7j6tz23zyt9fypm_1c0000gn/T//fm-fdleak.Zo9mhM/herdr-selected server --session fm-lab-fdleak-23053-14997] parent=1 (/sbin/launchd)
+no bash parent
+server fds: p23421 f3 tREG f4 tunix f5 tKQUEUE f6 tKQUEUE f7 tKQUEUE f8 tunix f9 tunix f10 tunix f11 tPIPE f13 tunix
+server pipe fds: 1
+server env (filtered): FM_LIVE_MARK=kept HERDR_SESSION=fm-lab-fdleak-23053-14997
+
+### S3: stop lab server, restart via adapter fm_backend_herdr_server_ensure in a capture (GNU bash, version 3.2.57(1)-release (arm64-apple-darwin26), shape=redirected)
+after stop running: false
+[S3] capture returned after 0s: returned rc=0
+status running: true
+server pid=23551 argv=[herdr server --session fm-lab-fdleak-23053-14997] parent=1 (/sbin/launchd)
+no bash parent
+server fds: p23551 f3 tREG f4 tunix f5 tKQUEUE f6 tKQUEUE f7 tKQUEUE f8 tunix f9 tunix f10 tunix f11 tPIPE f12 tPIPE f13 tunix
+server pipe fds: 1
+server env (filtered): HERDR_SESSION=fm-lab-fdleak-23053-14997
+
+### S4 (counterfactual): base-commit adapter, same plain capture
+[S4-base] capture returned after 0s: returned rc=0
+status running: true
+server pid=23697 argv=[herdr server --session fm-lab-fdleak-23053-14997] parent=23696 (/run/current-system/sw/bin/bash)
+WAITING BASH PARENT PRESENT
+server fds: p23697 f3 tREG f4 tunix f5 tKQUEUE f6 tKQUEUE f7 tKQUEUE f8 tunix f9 tunix f10 tunix f11 tPIPE f18 tunix
+server pipe fds: 1
+server env (filtered): HERDR_SESSION=fm-lab-fdleak-23053-14997
+
+### S5 (counterfactual): base-commit lab helper provision in a capture
+lab session 2: fm-lab-fdleakbase-23763-27329
+[base provision] returned after 1s
+status running: true
+server pid=23832 argv=[herdr server --session fm-lab-fdleakbase-23763-27329] parent=1 (/sbin/launchd)
+no bash parent
+server fds: p23832 f3 tREG f4 tunix f5 tKQUEUE f6 tKQUEUE f7 tKQUEUE f8 tunix f9 tunix f10 tunix f11 tPIPE f13 tunix
+server pipe fds: 1
+server env (filtered): HERDR_SESSION=fm-lab-fdleakbase-23763-27329
+[base provision] after guarded stop: provision rc=0
+## teardown fm-lab-fdleakbase-23763-27329
+teardown rc=0
+## teardown fm-lab-fdleak-23053-14997
+teardown rc=0
+default before: [{"name":"default","running":true,"socket_path":"/Users/sadikbajracharya/.config/herdr/herdr.sock"}]
+default after:  [{"name":"default","running":true,"socket_path":"/Users/sadikbajracharya/.config/herdr/herdr.sock"}]
+DEFAULT SESSION UNCHANGED
+["default"]

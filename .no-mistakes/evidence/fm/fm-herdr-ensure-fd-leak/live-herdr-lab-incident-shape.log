@@ -1,0 +1,78 @@
+lab session: fm-lab-fdshape-69215-16844
+
+### adapter=new bash=5.3.9(1)-release (aarch64-apple-darwin25.4.0)
+  CAPTURE RETURNED in 2s: returned rc=0
+  running: true
+  server pid=69578 parent=1 (/sbin/launchd)
+  server pipe fds:
+    fd 11 PIPE 0x1d7e95b4390556a2 ->0x9f7ab61634e93dbd
+
+### adapter=new bash=3.2.57(1)-release (arm64-apple-darwin26)
+  CAPTURE RETURNED in 2s: returned rc=0
+  running: true
+  server pid=70690 parent=1 (/sbin/launchd)
+  server pipe fds:
+    fd 11 PIPE 0x52570b809ea16aa2 ->0xb6d0b0fe0ebda055
+
+### adapter=base bash=5.3.9(1)-release (aarch64-apple-darwin25.4.0)
+  CAPTURE BLOCKED after 15s (server already up below)
+  running: true
+  server pid=70924 parent=70923 (/run/current-system/sw/bin/bash)
+  server pipe fds:
+  wrapper parent pipe fds:
+    fd 10 PIPE 0x5d8622c5fde56db0 ->0xc0706d03ccdaabf6
+  guarded lab stop...
+  capture released only after server stop: returned rc=0
+
+### adapter=base bash=3.2.57(1)-release (arm64-apple-darwin26)
+{"error":{"code":"session_stop_failed","message":"session fm-lab-fdshape-69215-16844 is not running or cannot be reached at /Users/sadikbajracharya/.config/herdr/sessions/fm-lab-fdshape-69215-16844/herdr.sock: No such file or directory (os error 2)"}}
+  CAPTURE BLOCKED after 15s (server already up below)
+  running: true
+  server pid=74553 parent=74551 (/bin/bash)
+  server pipe fds:
+  wrapper parent pipe fds:
+    fd 10 PIPE 0x8cf21c8885760e5a ->0xb67c81b68720ea24
+  guarded lab stop...
+  capture released only after server stop: returned rc=0
+
+### lab helper fm_herdr_lab_provision sourced in-process, inside a redirected function inside a capture
+-- helper=new bash5 session=fm-lab-pnewbash5-78966-15049
+  CAPTURE RETURNED in 0s: rc=0
+  running: true
+  server pid=78993 parent=1 (/sbin/launchd)
+  server pipe fds:
+    fd 11 PIPE 0x61216f5bef3f8346 ->0x82d37185a6710e8b
+## teardown fm-lab-pnewbash5-78966-15049
+teardown rc=0
+-- helper=new bash32 session=fm-lab-pnewbash32-79180-14265
+  CAPTURE RETURNED in 1s: rc=0
+  running: true
+  server pid=79207 parent=1 (/sbin/launchd)
+  server pipe fds:
+    fd 11 PIPE 0x17171427d86bd3a7 ->0xf3011a9c076c9f11
+## teardown fm-lab-pnewbash32-79180-14265
+teardown rc=0
+-- helper=base bash5 session=fm-lab-pbasebash5-79414-15594
+  CAPTURE RETURNED in 0s: rc=0
+  running: true
+  server pid=79441 parent=1 (/sbin/launchd)
+  server pipe fds:
+    fd 11 PIPE 0xd8321625af4a4951 ->0x3972f4ff7f2058ba
+## teardown fm-lab-pbasebash5-79414-15594
+teardown rc=0
+-- helper=base bash32 session=fm-lab-pbasebash32-79657-14338
+  CAPTURE BLOCKED after 15s
+  running: true
+  server pid=79688 parent=79686 (/bin/bash)
+  server pipe fds:
+  wrapper parent pipe fds:
+    fd 10 PIPE 0xc2f25f00bb0d2dd0 ->0x79857d3dcd60e4aa
+  released only after guarded server stop: rc=0
+## teardown fm-lab-pbasebash32-79657-14338
+teardown rc=0
+## teardown fm-lab-fdshape-69215-16844
+teardown rc=0
+default before: [{"name":"default","running":true,"socket_path":"/Users/sadikbajracharya/.config/herdr/herdr.sock"}]
+default after:  [{"name":"default","running":true,"socket_path":"/Users/sadikbajracharya/.config/herdr/herdr.sock"}]
+DEFAULT SESSION UNCHANGED
+["default"]
